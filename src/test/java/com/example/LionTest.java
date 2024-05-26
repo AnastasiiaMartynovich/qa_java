@@ -56,5 +56,13 @@ public class LionTest {
         List<String> result = lion.getFood();
         assertEquals(List.of("Мясо"), result);
     }
+    @Test
+    public void incorrectGenderException() throws Exception {
 
+        String expected = "Используйте допустимые значения пола животного - самец или самка";
+        Exception exception = Assert.assertThrows(Exception.class, () -> {
+            Lion lion = new Lion("Лев", mockFeline);
+        });
+        assertEquals(expected, exception.getMessage());
+    }
 }
