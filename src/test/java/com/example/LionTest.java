@@ -13,7 +13,7 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LionTest {
-
+    private static final int EXPECTED_KITTENS_COUNT = 3;
     @Mock
     private Feline mockFeline;
 
@@ -22,10 +22,10 @@ public class LionTest {
 
         Lion lion = new Lion("Самец", mockFeline);
 
-        when(mockFeline.getKittens()).thenReturn(3);
+        when(mockFeline.getKittens()).thenReturn(EXPECTED_KITTENS_COUNT);
 
         int result = lion.getKittens();
-        assertEquals(3, result);
+        assertEquals(EXPECTED_KITTENS_COUNT, result);
     }
 
     @Test
